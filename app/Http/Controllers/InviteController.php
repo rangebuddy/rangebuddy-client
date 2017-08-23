@@ -111,7 +111,7 @@ class InviteController extends Controller
 
                 // - send invitation email
                 Mail::send('emails.invite', ['invite' => $invite, 'group' => $group, 'invitating_user' => $request->user()], function ($message) use ($email, $request, $group) {
-                    $message->from(env('MAIL_FROM', 'noreply@example.com'), env('APP_NAME', 'Laravel'))
+                    $message->from(env('MAIL_FROM', 'accounts@rangebuddy.ca'), env('APP_NAME', 'Laravel'))
                     ->to($email)
                     ->subject( '[' . env('APP_NAME') . '] ' . trans('messages.invitation_to_join') . ' "'   . $group->name . '"');
                 });
