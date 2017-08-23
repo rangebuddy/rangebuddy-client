@@ -20,7 +20,7 @@ class AppMailer
     public function sendEmailConfirmationTo(User $user)
     {
         Mail::send('emails.confirm', ['user' => $user], function ($message) use ($user) {
-            $message->from(env('MAIL_NOREPLY', 'accounts@rangebuddy.ca'), env('APP_NAME', 'Laravel'))
+            $message->from(env('MAIL_NOREPLY', 'accounts@rangebuddy.ca'), env('APP_NAME', 'Rangebuddy'))
             ->to($user->email, $user->name)
             ->subject('[' . env('APP_NAME') . '] ' . trans('messages.confirm_your_email'));
         });
